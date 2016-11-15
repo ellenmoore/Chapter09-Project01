@@ -21,33 +21,26 @@
          <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-shopping-cart"></span> Just Ordered</h4>
 			<?php include 'art-data.php' ?>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/099110.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">The Veiled Woman</a></p>
-                <em>5 minutes ago</em>
-              </div>
-            </div>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/116010.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">Artist Holding a Thistle</a></p>
-                <em>11 minutes ago</em>
-              </div>
-            </div>   
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/113010.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">Self-portrait in a Straw Hat</a></p>
-                <em>23 minutes ago</em>
-              </div>
-            </div>  
+			<?php 
+				//loop to iterate through the array of items ordered contained in art-data.php
+				foreach ($recentOrders as $key => $items){
+					displayOrder($items["filename"], $items["title"], $items["time"]);
+				}
+			
+			//function to display the item ordered
+			function displayOrder($filename, $title, $time){
+            echo '<div class="media">';
+            echo  '<a class="pull-left" href="#">';
+            echo    '<img class="media-object" src="images/art/tiny/' . $filename . '" alt="...">';
+            echo  '</a>';
+            echo  '<div class="media-body">';
+            echo    '<p class="media-heading similarTitle"><a href="#">' . $title . '</a></p>';
+            echo    '<em>' . $time . 'minutes ago</em>';
+            echo  '</div>';
+            echo '</div>';
+			}
+			?>
+            
          </div>       
          <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-envelope"></span> Contact us</h4>
