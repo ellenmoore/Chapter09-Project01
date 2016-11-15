@@ -32,8 +32,7 @@
 		}
 		else {return "No";}
 	}
-
-//$content holds a 2D array with keys being menu names and values being an array with a subtitle, and content
+$currentPage = "My Account";
 $content = array("Login" => array("Login Page","This page is the login page"),
 "Register" => array("Register page", "Register page content here"),
 "Password Recovery" => array("Password Recovery page", "Password Recovery page content here"),
@@ -57,7 +56,7 @@ $content = array("Login" => array("Login Page","This page is the login page"),
                <?php $pageCount =1;
 						foreach ($content as $key => $elements){
 							echo "<li ";
-							echo ($pageCount==$_GET['page'] ? " class='active'" : "");
+							echo ($key == $currentPage ? " class='active'" : "");
 							echo "><a href='?page=$pageCount'>$key</a></li></br>";
 							$pageCount++;
 						} ?>
