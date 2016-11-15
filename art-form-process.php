@@ -25,6 +25,21 @@
 
 
 <?php include 'art-header.inc.php' ?>
+<?php
+	function checkPrivacy(){
+		if ($_POST['privacy']== true){
+		return "Yes";
+		}
+		else {return "No";}
+	}
+$currentPage = "My Account";
+$content = array("Login" => array("Login Page","This page is the login page"),
+"Register" => array("Register page", "Register page content here"),
+"Password Recovery" => array("Password Recovery page", "Password Recovery page content here"),
+"My Account" => array("My Account page", "My Account page content here"),
+"Returns" => array("Returns page", "Returns page content here"),
+"Order History" => array("Order History page", "Order History page content here"));
+?>
 
 <div class="container">
 
@@ -38,7 +53,13 @@
            <div class="panel-body">
 
            <ul class="nav nav-pills nav-stacked">
-               <li>menu items here</li>
+               <?php $pageCount =1;
+						foreach ($content as $key => $elements){
+							echo "<li ";
+							echo ($key == $currentPage ? " class='active'" : "");
+							echo "><a href='?page=$pageCount'>$key</a></li></br>";
+							$pageCount++;
+						} ?>
            </ul>  
            
            
@@ -50,11 +71,14 @@
       
          <div class="page-header">
             <h2>My Account</h2>
-            <p>Welcome </p>   
+            <p>Welcome <?php echo $_POST["first"];	echo " "; echo $_POST["last"];?></p>   
          </div>
          
          <div class="well">
-            <p>passed form data here</p>     
+            <p> <?php echo "First Name: ". $_POST['first']; ?> </p>
+			<p> <?php echo "Last Name: ". $_POST['last']; ?> </p>
+			<p> <?php echo "Email: ". $_POST['email']; ?> </p>
+			<p> <?php echo "Agreed to Privacy Policy: ". checkPrivacy(); ?> </p>
          </div>
       </div>  
    </div> 
