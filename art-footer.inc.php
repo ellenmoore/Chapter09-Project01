@@ -1,4 +1,6 @@
+<?php
 
+?>
 
 <footer>
    <div class="container">
@@ -18,6 +20,7 @@
          </div>
          <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-shopping-cart"></span> Just Ordered</h4>
+			<?php include 'art-data.php' ?>
             <div class="media">
               <a class="pull-left" href="#">
                 <img class="media-object" src="images/art/tiny/099110.jpg" alt="...">

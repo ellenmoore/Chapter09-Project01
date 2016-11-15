@@ -50,8 +50,8 @@
       </div>
       <div class="col-md-9">
       
-      
-<form role="form" class="form-horizontal" >
+ 
+<form role="form" class="form-horizontal" action="art-form-process.php" method="POST">
    <div class="page-header">
       <h2>Register Account</h2>
       <p>If you already have an account with us, please login at the login page.</p>   
